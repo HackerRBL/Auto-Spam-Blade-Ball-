@@ -1,0 +1,276 @@
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE(data) m=string.sub(data, 0, 55) data=data:gsub(m,'')
+
+data = string.gsub(data, '[^'..b..'=]', '') return (data:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end local c=0 for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(c) end)) end
+
+
+ 
+
+
+local Players = game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('muMaUXpqLyyqmwkRBYKYfOvEBrSKqeiAQGNoImoXmlnExXlGlnuqTSoUGxheWVycw=='))
+local UserInputService = game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('yPmCcwdDiXTWEifmZYPKhzjjOjOknApjpnLcDfxZcqqwIRnTRsYkowqVXNlcklucHV0U2VydmljZQ=='))
+local RunService = game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('QMZMadizVQpmtsCsEWiKxefvOCAAgfAzGoQZeTtXwJrfMNZIJOExfJqUnVuU2VydmljZQ=='))
+local TweenService = game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('bPpwbQzLGkhYiAbVUpRrBYLYjzVAGybDYZvJwOZcrFLSuYRcOIfskntVHdlZW5TZXJ2aWNl'))
+
+local player = Players.LocalPlayer
+local gui = player:WaitForChild(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('GdqrqUFgyvoYAWRvidwJXrpxZdoKRImDlkZypzNwvFaCcDdiTsDrpDXUGxheWVyR3Vp'))
+
+local ScreenGui = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('fSXNvWpGIRbGBWoSJDKLwfKLQKgDgPUrKsXOPyDozFxZxhBREcrGilkU2NyZWVuR3Vp'))
+local mainFrame = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('wJuklENyvGwCHLhsEaYVBtLcdpdPstnTXTesAGjqkbaPvMcSzPZdIrzRnJhbWU='))
+local titleBar = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('zqFnVvAKDcoPBCAPGhBdUTVlcwFttGbvbdbXjjlfWueqCIyZheeVnwbRnJhbWU='))
+local titleLabel = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('sxGOZVMBTtTZZdfTnqXoVbsdJKDeUsgbDKMREeAoAlJHhqVRvmafWyhVGV4dExhYmVs'))
+local UIScale = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('cdIrdreIPlhxnJEwLUjHfMsGJojXJwAgxhvSRsHhpXrFbsBxbuitBpSVUlTY2FsZQ=='))
+
+-- GUI Setup
+ScreenGui.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('ydkaUoncLzqHTaNLcsVchmnYionTjZflqcUyUVOquCtVauuFdmuTcilQXV0b1NwYW1CQlBybzIuMA==')
+ScreenGui.Parent = gui
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+UIScale.Parent = ScreenGui
+UIScale.Scale = 1.2
+
+mainFrame.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('RjiNjnRmwaebjesMndpyvFEpaiDDuQUZfSoxarKYRIXGKndbNOnzsfTTWFpbkZyYW1l')
+mainFrame.Parent = ScreenGui
+mainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 25)
+mainFrame.BorderSizePixel = 0
+mainFrame.Position = UDim2.new(0.5, -150, 0.5, -100)
+mainFrame.Size = UDim2.new(0, 300, 0, 200)
+mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+mainFrame.ClipsDescendants = true
+
+local corner = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('BEeCahlcZxWVmStfpopSAerNdpWmTBAsVXkWLRthljIwrmvYwfyTxKOVUlDb3JuZXI='))
+corner.CornerRadius = UDim.new(0, 12)
+corner.Parent = mainFrame
+
+-- Shadow effect
+local shadow = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('yvtTWIAFHvbxhfuJixsFIagtKDgdlRzzbxDYylkKNZBHaTYkSWdIgJqSW1hZ2VMYWJlbA=='))
+shadow.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('dfdGAjcnEmeRcSgZCJAzQatchnzRvAhpFlwLBsQnYOsNcFqmnHBXkswU2hhZG93')
+shadow.Parent = mainFrame
+shadow.BackgroundTransparency = 1
+shadow.Size = UDim2.new(1, 10, 1, 10)
+shadow.Position = UDim2.new(0, -5, 0, -5)
+shadow.ZIndex = -1
+shadow.Image = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('DgAjqpxxZnNIqHSnQvLemxOXwYHcjYNgbXnKzjrQUzaZqdKaxTIrxrFcmJ4YXNzZXRpZDovLzEzMTYwNDUyMTc=')
+shadow.ImageColor3 = Color3.new(0, 0, 0)
+shadow.ScaleType = Enum.ScaleType.Slice
+shadow.SliceCenter = Rect.new(10, 10, 118, 118)
+
+-- Title Bar
+titleBar.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('LmWsUgIcYRqmUXQuMBchZjrhvihPCwEXlpppNnewyvDyVrLlAsxeGfcVGl0bGVCYXI=')
+titleBar.Parent = mainFrame
+titleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+titleBar.Size = UDim2.new(1, 0, 0, 40)
+titleBar.BorderSizePixel = 0
+
+local titleCorner = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('BKPWbrdHcTLCKxTwrUItScMjWfIQGoYFsppfCiibLTIrLzAKCasDVByVUlDb3JuZXI='))
+titleCorner.CornerRadius = UDim.new(0, 12)
+titleCorner.Parent = titleBar
+
+titleLabel.Parent = titleBar
+titleLabel.BackgroundTransparency = 1
+titleLabel.Size = UDim2.new(0.8, 0, 1, 0)
+titleLabel.Font = Enum.Font.GothamBlack
+titleLabel.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('eArcjdFQnLWvvmcJkKCLYUaekdXkqkrEFDNfhfqMxRDYnHwWHEdtSvpQXV0byBTcGFtIEJCIFBybyAyLjA=')
+titleLabel.TextColor3 = Color3.fromRGB(0, 255, 200)
+titleLabel.TextSize = 16
+titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+titleLabel.PaddingLeft = UDim.new(0, 15)
+
+-- Drag functionality (cross-platform)
+local dragging
+local dragStart
+local startPos
+
+local function updateInput(input)
+    local delta = input.Position - dragStart
+    mainFrame.Position = UDim2.new(
+        startPos.X.Scale, 
+        startPos.X.Offset + delta.X, 
+        startPos.Y.Scale, 
+        startPos.Y.Offset + delta.Y
+    )
+end
+
+titleBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+titleBar.InputChanged:Connect(function(input)
+    if (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement) and dragging then
+        updateInput(input)
+    end
+end)
+
+-- Auto Spam Section
+local autoSpamFrame = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('xgPlghCOQdoGATNFUvUDBostJXoWlOcvoMvDfGTUXglKlSsrUNbBAGgRnJhbWU='))
+autoSpamFrame.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('PHtxKvdOojgPIUdMmUXtOwKSUQMBLAknznPkeTttTyqQqzSPploKlvbQXV0b1NwYW0=')
+autoSpamFrame.Parent = mainFrame
+autoSpamFrame.BackgroundTransparency = 1
+autoSpamFrame.Position = UDim2.new(0, 0, 0, 40)
+autoSpamFrame.Size = UDim2.new(1, 0, 0, 160)
+
+local toggleContainer = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('fqPHVnedvaUVCnZsSnmfLYlTPqgejTaGsyObuErESVmNNNGYWfoJnqCRnJhbWU='))
+toggleContainer.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('VQoRcAcLfyRQtDRwBfoOHpCpQpvHHtsjZxeWXlpIBosNdozWmnpAhSTVG9nZ2xlQ29udGFpbmVy')
+toggleContainer.Parent = autoSpamFrame
+toggleContainer.BackgroundTransparency = 1
+toggleContainer.Size = UDim2.new(1, -20, 0, 120)
+toggleContainer.Position = UDim2.new(0, 10, 0, 10)
+
+-- Modern Toggle Switch
+local function createToggle(name, yPos, text)
+    local frame = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('VJGcCpFStsuQlwMgFqozgandknPeEEBtVinPAZaeAIysiTHqHbQhQEsRnJhbWU='))
+    frame.Name = name
+    frame.BackgroundTransparency = 1
+    frame.Size = UDim2.new(1, 0, 0, 40)
+    frame.Position = UDim2.new(0, 0, 0, yPos)
+    frame.Parent = toggleContainer
+
+    local label = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('hlmtMUSwVfDYCYRFalIrnTefwsurZqcRXMTdrjGHLmZHLCHAxMAXVbZVGV4dExhYmVs'))
+    label.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('OtSbMxKssLmlxRfkZinqNCqHLxjTalPCNmJrhpUwvXNWRHXzUunCBWXTGFiZWw=')
+    label.Parent = frame
+    label.BackgroundTransparency = 1
+    label.Size = UDim2.new(0.7, 0, 1, 0)
+    label.Font = Enum.Font.GothamBold
+    label.Text = text
+    label.TextColor3 = Color3.fromRGB(200, 200, 200)
+    label.TextSize = 14
+    label.TextXAlignment = Enum.TextXAlignment.Left
+
+    local toggle = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('wxSLcrVxpdApYIDUjsKNcyYCdzheukqnLRczSQPtEidiTNNYygHdSZmRnJhbWU='))
+    toggle.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('haIkVEuPUpxSpDLWMOoVjedpefYUMBjjgcdSrckCAOiUPhhrdHAiSvlVG9nZ2xl')
+    toggle.Parent = frame
+    toggle.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+    toggle.Size = UDim2.new(0.25, 0, 0.6, 0)
+    toggle.Position = UDim2.new(0.75, 0, 0.2, 0)
+    Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('uyoWhOwEUjejDRydEevOKaqRQpEwDtUsfmGNdLdtAFGdCIhJaynzeIvVUlDb3JuZXI='), toggle).CornerRadius = UDim.new(1, 0)
+
+    local thumb = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('DGztLcLdYuCMHjkkvaqVhsvuGNmKReAHHGUPtNWoRbxCtGnEvzvsPehRnJhbWU='))
+    thumb.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('cjoUPUCWdmvysYYEvvVVJIbmXYPDvawQedEfJMTYpsPfYGvKqjxIvdEVGh1bWI=')
+    thumb.Parent = toggle
+    thumb.BackgroundColor3 = Color3.fromRGB(100, 100, 110)
+    thumb.Size = UDim2.new(0.4, 0, 0.8, 0)
+    thumb.Position = UDim2.new(0.05, 0, 0.1, 0)
+    Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('aMxQVoZbPRGEpFGBnqNSHohyBQcmYDblcmmjAIqXzaMJqshjpBzrLAKVUlDb3JuZXI='), thumb).CornerRadius = UDim.new(1, 0)
+
+    return {frame = frame, toggle = toggle, thumb = thumb}
+end
+
+-- Auto Spam Toggle
+local spamToggle = createToggle(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('YrWVeuWpINjrGYRqDSrnRTLNAdtuADcKoMOJuKkuAOBmIujcDFgILdEQXV0b1NwYW0='), 0, xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('dEToyzkwZgXvDOSJoDHwulIPrNrZQxYnYHeiGdMxxXhevlSamGoJNGvQXV0byBTcGFtICgxbXMp'))
+local spamActive = false
+local spamConnection
+
+spamToggle.toggle.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
+        spamActive = not spamActive
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad)
+        
+        if spamActive then
+            TweenService:Create(spamToggle.thumb, tweenInfo, {Position = UDim2.new(0.55, 0, 0.1, 0)}):Play()
+            TweenService:Create(spamToggle.toggle, tweenInfo, {BackgroundColor3 = Color3.fromRGB(0, 200, 150)}):Play()
+            
+            spamConnection = RunService.Heartbeat:Connect(function()
+                keypress(0x46)
+                task.wait(0.001) -- 1ms delay
+            end)
+        else
+            TweenService:Create(spamToggle.thumb, tweenInfo, {Position = UDim2.new(0.05, 0, 0.1, 0)}):Play()
+            TweenService:Create(spamToggle.toggle, tweenInfo, {BackgroundColor3 = Color3.fromRGB(50, 50, 60)}):Play()
+            if spamConnection then
+                spamConnection:Disconnect()
+            end
+        end
+    end
+end)
+
+-- Auto Fix Lag Toggle
+local fixLagToggle = createToggle(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('tAchNAjGvuQDacmChTBjLXvVjHFBTWETUAbuvIiNUPVyfBnhikCUVtJQXV0b0ZpeExhZw=='), 50, xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('MOaYOmWldpNZYGKDigTyUExnuASPjGpenRnwoWuZqJoQDiVezhhXKTXQXV0byBGaXggTGFnIHgxMCBVbHRyYQ=='))
+local warningLabel = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('kPnLMKrIdpGamOFQxJAJvEEbjRehoGAAKtjxaaHnufORhBGMcfZLxizVGV4dExhYmVs'))
+warningLabel.Parent = fixLagToggle.frame
+warningLabel.Size = UDim2.new(1, 0, 0, 15)
+warningLabel.Position = UDim2.new(0, 0, 1, 0)
+warningLabel.Font = Enum.Font.Gotham
+warningLabel.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('bdHdqByVvqilQtQHmhEjWUgDyyQXwmYsLqsBtaZAPfpKKgBeMRAtTYmQ2Fubm90IGRpc2FibGUgb25jZSBlbmFibGVkIQ==')
+warningLabel.TextColor3 = Color3.fromRGB(255, 50, 50)
+warningLabel.TextSize = 12
+warningLabel.Visible = false
+
+local lagFixApplied = false
+fixLagToggle.toggle.InputBegan:Connect(function(input)
+    if not lagFixApplied and (input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1) then
+        lagFixApplied = true
+        warningLabel.Visible = true
+        
+        -- Enhanced lag fix
+        settings().Rendering.QualityLevel = 1
+        settings().Rendering.MeshCacheSize = 0
+        settings().Rendering.EnableFRM = false
+        game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('dGAqXVmLjNNrwdEfhHWpefgAgbFQmWywDIMUASqjvTyzdpvojXoYKZvTGlnaHRpbmc=')).GlobalShadows = false
+        game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('qbQkShOAFEnhZpSZwwEsxFwTPbhlKbvfUxWnbxSTbBPDnjDhXsfPwYvTGlnaHRpbmc=')).FantasySky.Enabled = false
+        sethiddenproperty(game:GetService(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('alhTYaGnupYfZmdKkabqBwFsLXsfQnTfWWrwXEllnjtejFvEfFkbkiFTGlnaHRpbmc=')), xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('dMJzxHIctGwezRXHGlheqleLIeMacybGWijZLDtZGLRoxCRgazEChjOVGVjaG5vbG9neQ=='), 2)
+        sethiddenproperty(game.Lighting, xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('qtSpZkzuCZkfwJJXesJqQkXknUGhJXrsfFSohPaeWConeSuJWKeIfwwU2hhZG93U29mdG5lc3M='), 0)
+        for _, v in pairs(workspace:GetDescendants()) do
+            if v:IsA(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('XzKzBvSsAjwIZDpcQcOYSRPjRXSNcBqWuRbDEVRPUvrwsVcMKKcaLGLUGFydA==')) or v:IsA(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('snNNixoRsSovJSgFMdwwsLqaShxVZuhTsIsvXiefNAtzqFLbtJGJddITWVzaFBhcnQ=')) then
+                v.Material = Enum.Material.Plastic
+            end
+        end
+        
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad)
+        TweenService:Create(fixLagToggle.thumb, tweenInfo, {Position = UDim2.new(0.55, 0, 0.1, 0)}):Play()
+        TweenService:Create(fixLagToggle.toggle, tweenInfo, {BackgroundColor3 = Color3.fromRGB(200, 50, 50)}):Play()
+    end
+end)
+
+-- Collapse/Expand System
+local collapseButton = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('LDekdENVLJioTlIfuJiABHHoSmZVigukWSdetrSZEWJzwUjAObyvqYaVGV4dEJ1dHRvbg=='))
+collapseButton.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('cxreSzIAosdHVNFontXnqItNgBegqmjVImTWHDNVtXRNjpOKmmXFvKFQ29sbGFwc2VCdXR0b24=')
+collapseButton.Parent = titleBar
+collapseButton.BackgroundTransparency = 1
+collapseButton.Size = UDim2.new(0.15, 0, 1, 0)
+collapseButton.Position = UDim2.new(0.85, 0, 0, 0)
+collapseButton.Font = Enum.Font.GothamBlack
+collapseButton.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('uZPbQRaePEqNgBSNTFcYODTDfKGetLnENoZCXEjnHuKhcvRAMdsEIjrLQ==')
+collapseButton.TextColor3 = Color3.fromRGB(0, 255, 200)
+collapseButton.TextSize = 20
+
+local isCollapsed = false
+collapseButton.MouseButton1Click:Connect(function()
+    isCollapsed = not isCollapsed
+    if isCollapsed then
+        mainFrame.Size = UDim2.new(0, 300, 0, 40)
+        titleLabel.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('uWlBLrOwHltJvAPplBnEvkUnPaSmyzEoVmlcLLKgNYkblfazppNpBMhQVNCQiBQcm8gMi4w')
+        autoSpamFrame.Visible = false
+    else
+        mainFrame.Size = UDim2.new(0, 300, 0, 200)
+        titleLabel.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('jtZrBrNEkFOKqnNxgGBEReSaocINeCSZXhLrZExQoMrZPioIyLqrnozQXV0byBTcGFtIEJCIFBybyAyLjA=')
+        autoSpamFrame.Visible = true
+    end
+end)
+
+-- Hide Button
+local hideButton = Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('oWyQyvMqXMSmXMEYEkwCSZJOGRrdjrMwsQRmHzRJidJvCSBenDwnaApVGV4dEJ1dHRvbg=='))
+hideButton.Name = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('kvPedvKLYRzyWpFAUhnVNrSffoqvePrajKYPEgmcrXBzrbCnkJSraRJSGlkZUJ1dHRvbg==')
+hideButton.Parent = autoSpamFrame
+hideButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+hideButton.Size = UDim2.new(1, -20, 0, 30)
+hideButton.Position = UDim2.new(0, 10, 1, -40)
+hideButton.Font = Enum.Font.GothamBold
+hideButton.Text = xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('HzMvpPRQrVvCNhLCNcgcgbxoFLqYWZwknZPzwYRwLzFSbKSWjJaVhBBSElERSBNRU5V')
+hideButton.TextColor3 = Color3.new(1, 1, 1)
+hideButton.TextSize = 14
+Instance.new(xtAxFcLmzLLjxmzCrOMrLftOcAaGSFcVGnxtqjeBvgwVBMmbjsfyCNNKqtKxUIPHIMoiByDRWXcmKRBBWE('vDjBosVHuseqetaOKlqGtduWbZVUQtRSCRmbmrSRyzlviLmYDhIAPRKVUlDb3JuZXI='), hideButton).CornerRadius = UDim.new(0, 6)
+
+hideButton.MouseButton1Click:Connect(function()
+    ScreenGui.Enabled = not ScreenGui.Enabled
+end)    
